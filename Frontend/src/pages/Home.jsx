@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import MangaDetails from "../components/MangaDetails";
+import MangaForm from "../components/MangaForm";
 
 const Home = () => {
   const [mangas, setMangas] = useState(null);
@@ -21,8 +22,11 @@ const Home = () => {
     <>
       <div className="home">
         <div className="mangas">
-          {mangas && mangas.map((manga) => <MangaDetails key={manga._id} manga = {manga}/>)}
+          {mangas && mangas.map((manga) =>
+           <MangaDetails key={manga._id} manga = {manga}
+           />)}
         </div>
+           <MangaForm />
       </div>
     </>
   );
