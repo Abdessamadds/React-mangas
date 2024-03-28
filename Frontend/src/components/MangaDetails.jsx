@@ -7,7 +7,7 @@ const MangaDetails = ({ manga }) => {
         <h4>{manga.title}</h4>
         <p>
           Description:
-          <strong> {manga.description}</strong>{" "}
+          <strong> {manga.description}</strong>
         </p>
         <p>
           Price:<strong> {manga.price} $</strong>
