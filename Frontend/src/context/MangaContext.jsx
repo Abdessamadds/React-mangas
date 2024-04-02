@@ -27,7 +27,7 @@ export const MangaContextProvider = ({ children }) => {
   */
   return 
   (
-  <MangaContext.Provider>
+  <MangaContext.Provider value={{state, dispatch}}>
    {children}
    </MangaContext.Provider>
   )
