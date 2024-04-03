@@ -12,7 +12,11 @@ export const mangasReducer = (state, action) => {
       return {
         mangas: [action.payload, ...state.mangas]
       }
-    default:
+      case "DELETE_MANGAS": 
+      return {
+        mangas: state.mangas.filter((manga) => manga._id !== action.payload._id )
+      }
+     default:
       return state
   }
 }

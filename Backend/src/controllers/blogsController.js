@@ -86,7 +86,7 @@ const deleteBlog = async (req, res) => {
       return res.json({ error: "Manga Not Found" });
     }
     // res.status(200).json(blogs);
-    res.json({ message: "user deleted succefully" });
+    res.json({ message: "Manga deleted succefully" });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
