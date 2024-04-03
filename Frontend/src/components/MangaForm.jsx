@@ -1,6 +1,7 @@
 import { useState } from "react";
-
+import { useMangaContext }  from '../hooks/useMangaContext'
 const MangaForm = () => {
+  const {dispatch} = useMangaContext() 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -27,6 +28,7 @@ const MangaForm = () => {
       setPrice("");
       setError(null);
       console.log("new Manga added !", json);
+      dispatch({ type: "CREATE_MANGAS", payload: json})
     }
   };
   return (

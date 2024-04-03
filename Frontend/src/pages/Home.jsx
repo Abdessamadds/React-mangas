@@ -1,10 +1,14 @@
-import { useState, useEffect } from "react";
+import {  useEffect } from "react";
+import { useMangaContext } from "../hooks/useMangaContext"; 
+
+
+// components
 import MangaDetails from "../components/MangaDetails";
 import MangaForm from "../components/MangaForm";
 
 const Home = () => {
-  const [mangas, setMangas] = useState(null);
-
+  // const [mangas, setMangas] = useState(null);
+  const { mangas, dispatch} = useMangaContext() 
   useEffect(() => {
     const fetchManga = async () => {
       const response = await fetch("/api/blogs", {
@@ -12,7 +16,9 @@ const Home = () => {
       });
       const json = await response.json();
       if (response.ok) {
-        setMangas(json);
+        // setMangas(json);
+        dispatch({type: 'SET_MANGAS', payload:json})
+
       }
     };
     fetchManga();
