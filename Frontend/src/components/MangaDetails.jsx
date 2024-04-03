@@ -28,7 +28,7 @@ const MangaDetails = ({ manga }) => {
           Price:<strong> {manga.price} $</strong>
         </p>
         <p>Published in our website : {manga.createdAt}</p>
-        <span onClick={handleClick}>Delete</span>
+        <span className="material-symbols-outlined" onClick={handleClick}>Delete</span>
       </div>
     </>
   );

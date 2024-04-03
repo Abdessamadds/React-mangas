@@ -6,6 +6,7 @@ const MangaForm = () => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [error, setError] = useState(null);
+  const [emptyFields, setEmptyFields] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,8 +22,10 @@ const MangaForm = () => {
     const json = await response.json();
     if (!response.ok) {
       setError(json.error);
+      setEmptyFields(json.emptyFields)
     }
     if (response.ok) {
+      setEmptyFields([])
       setTitle("");
       setDescription("");
       setPrice("");
@@ -40,18 +43,21 @@ const MangaForm = () => {
           type="text"
           onChange={(e) => setTitle(e.target.value)}
           value={title}
+          className={emptyFields.includes('title') ? 'error' : ''}
         />
         <label> Description : </label>
         <input
           type="text"
           onChange={(e) => setDescription(e.target.value)}
           value={description}
+          className={emptyFields.includes('description') ? 'error' : ''}
         />
         <label> Price : $</label>
         <input
           type="number"
           onChange={(e) => setPrice(e.target.value)}
           value={price}
+          className={emptyFields.includes('price') ? 'error' : ''}
         />
         <button>Add manga</button>
         {error && <div className="error">{error}</div>}
