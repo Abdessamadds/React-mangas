@@ -36,6 +36,21 @@ const createBlog = async (req, res) => {
   const { title, description, price } = req.body;
   try {
     // Check if the email already exists in the database
+    
+  let emptyFields = []
+  if (!title) {
+    emptyFields.push('title')
+  }
+  if (!load) {
+    emptyFields.push('load')
+  }
+  if (!reps) {
+    emptyFields.push('reps')
+  }
+  if (emptyFields.length > 0) {
+    return res.status(400).json({ error: 'Please fill in all fields', emptyFields })
+  }
+
     const existingName = await Blog.findOne({
       title: req.body.title,
     });

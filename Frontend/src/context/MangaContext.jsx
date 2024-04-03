@@ -12,7 +12,7 @@ export const mangasReducer = (state, action) => {
       return {
         mangas: [action.payload, ...state.mangas]
       }
-      case "DELETE_MANGAS": 
+      case 'DELETE_MANGAS': 
       return {
         mangas: state.mangas.filter((manga) => manga._id !== action.payload._id )
       }

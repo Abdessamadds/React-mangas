@@ -11,7 +11,7 @@ const MangaDetails = ({ manga }) => {
     const json = await response.json();
     console.log(json)
     if (response.ok) {
-      dispatch({ type: "DELETE_MANGAS", payload: json })
+      dispatch({ type: 'DELETE_MANGAS', payload: json })
     }else {
       console.error("Error deleting manga:", response.status, json);
     }
